@@ -122,6 +122,17 @@ def test_back_track_after_one_turn(robot):
     assert state['row'] == 10
     assert state['col'] == 1
 
+def test_back_track_once_after_multiple_moves(robot):
+    robot.turn()
+    robot.move()
+    robot.move()
+    robot.back_track()
+
+    state = robot.state()
+    assert state['direction'] == Direction.EAST
+    assert state['row'] == 10
+    assert state['col'] == 2
+
 def test_back_track_multiple_moves(robot):
     robot.turn()
     robot.move()
